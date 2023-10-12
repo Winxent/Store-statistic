@@ -68,7 +68,51 @@ print(df.head())
 <img width="768" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/a6731a14-30b8-428e-958e-0874dda800cb">
 <img width="678" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/f8ee320d-9c52-4965-815e-1615725481bb">
 
+Datatypes error:
+1.	Profit per Customer, should be in float type 
+2.	Profit per Order, should be in float type
+3.	Sales Forecast, should be in float type
+4.	Sales per Customer, should be in float type.
+5.	Order Date, should be in date format
+6.	Profit, should be in float type
+7.	Sales, should be in int type
+8.	Ship Date, should be in date type
+After investigation, it seems that the data type can’t convert to float is because there is a comma
+
+<img width="58" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/9eca00ff-a36b-4aea-afed-08288fbf9565">
+
+1. String to float datatype
+We need to remove the comma first
+```
+df['Profit per Customer']=df['Profit per Customer'].str.replace(',','')
+```
+Then we change then to float type:
+```
+df[‘Profit per Customer’] = df[‘Profit per Customer’].astype(float)
+```
+Repeat all for float type error.
+
+2. String to date datatype
+Change to date function
+```
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+```
+Repeat for Ship Date
+
+3. String to int datatype
+Change string to int for sales column
+```
+df['Sales']=df['Sales'].str.replace(',','')
+df['Sales'] = df['Sales'].astype(int)
+```
+
+<img width="292" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/f518d50a-526e-444b-9910-f2811a3d24c1">
+
+Now all the datatypes are correct
+
 ## D – Drop irrelevant columns
+
+
 ## E – Fix inconsistent data entry
 ## F – Trim whitespaces
 ## G – Correct spelling errors
