@@ -375,8 +375,31 @@ Base on profit mean median mode and quartile, there is an average of  37.29 prof
 From the few group by the information table, a few insights can be made. Shipping early gained more profit for the store. Technology products has higher profit average. Business should focus more on technology. In addition, selling to Switzerland gain more profit than other countries. Lastly, high discount causes business to lose money. Business owner should reconsider in these discount rate. 
 
 ### 3.	Graphics and charts:
-Dash board.
+Interactive dash board.
 
+A data story is created through Tableau using this dataset:
+
+https://public.tableau.com/views/StorePerformance_16971065556690/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link
+
+#### 1. Overview:
+First page shows the overview of the datasets. Size, shape and average or the data for customer to understand the data range.
+
+<img width="944" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/8c8c2bd4-42f9-42d9-8023-7433122438e8">
+
+#### 2. Comparison:
+Second page shows the profit base on different products and profit generated from differen states. 
+
+<img width="974" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/451195f0-83e0-47a5-8674-8214bdca5f6a">
+
+#### 3. Performance:
+Last page shows the profit performance base on different factors such as segment, product category and discount. A historgram is ploted to understand the distribution of profit. 
+
+<img width="1037" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/d85a37b9-f77d-4614-bc6a-6fc33869d3d3">
+
+# Conclusion:
+From the data analysis, we found out that the as the year progesses, more profit is generated, the business increasing for this store. Furthermore, some countries generated negative profits, business owner need to take note and action has to be taken to limit the losses. One of the cases for loses might be due to discount rate given is too high for some cases. Business owner need to reconsider on these discount rate. Through data sorting, we can see that hoover stove generates most profit and England has the highest profit generated area. Store owner needs to put in more focus on these high profit generated area and product. Other than that, sorting through segment, category and discount can also give an overview for analysis and let us know which selection generated the most profit, for example: Consumer segment produces the highest profit. Using price historgram we can see that most of the order generated 0 profit. Store owner needs to elimited and reduce these occurance and investigate the reason behind these issue.
+
+Using interactive visual dashboard, we can sort products, segments and category to compare performance of the business based on sales, profit, area, and shipment types. By combining data analysis and data visualisation, store owner can make their decision better to get the most out of the business.
 
 
 
