@@ -149,6 +149,119 @@ There are no spelling errors
 ## H – Correct numerical errors
 There are no numerical errors
 
+![rainbow](https://github.com/Winxent/portfolio/assets/146320825/5dc438d2-e138-4db0-97a0-e5ae8c3473e8)
+
 # Data Analysis (Python)
+There are 10000 rows, 22 columns. There are Column types of both categorical and numerical and they provide us the information about the Store details. Day to ship actual vs schedule, shipping status and shipping mode for the product. Segment, category and sub category of the product. Product name, customer name, manufacturer for identification. City, Country, Region and Sate for the location information. Order Id and order date to keep track of the order. Profit, Profit Ratio, Sales and Quantity for analysis.
+
+Key performance indicators: Sales, profit, profit ratio, of the products can be used to analyse the performance of the store. The analysis can even be segregated based on product category, location, shipping mode and so on. We can even investigate base on manufacturer as well.
+
+New information, indicators can be drawn through this dataset is Cost which can be generated from the profit ratio and sales.
+```
+df['Cost']=df['Sales']*(1-(df['Profit Ratio'].str.rstrip('%').astype('float') / 100.0))
+```
+## Data Exploration
+### Describing the datasets
+```
+df.describe()
+```
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/3d83f3da-6323-4cfb-b934-4f27dcbec53c">
+
+### Shape and Size of your dataset
+In order to have a better data description we usually check the Shape and Size of our dataset along with the general description of datasets such as count, unique values etc.
+```
+df.shape
+```
+10000 rows and 24 columns after adding 2 new indicators
+
+```
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+print(df.head(16))
+```
+<img width="574" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/6f5b2ed6-8a44-4674-b2dd-6b80e999abed">
+<img width="636" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/8bcab946-bc20-4d22-b92f-9e0f0fb36466">
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/0d0cc665-ebf0-47e3-9212-a25e6c13e42c">
+
+By investigating the shape and size of our data set:
+1.	Aware of the size of your datasets
+2.	Aware that your columns have numerical or categorical 
+3.	Major information/ description of the datasets, provided some insight of the data stored in the datasets. Example:
+  a.	Sub-Category
+  b.	Manufacturer
+  c.	Ship Mode
+  d.	Location
+  e.	Segment
+  f.	Ship Status
+
+## Data Aggregation:
+It helps us understand the data trends and values based on the compact display of values. Helps describe the data, and generate insight from the characteristic of the data. A store business owner might want to look into the sales and decide which products have better performance so that he or she can focus more than these products. A store owner can also look into which products give negative profit. 
+
+1. Check the types of columns we have
+```
+df.dtypes
+```
+<img width="183" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/6c00d2a6-c134-46db-a881-54de116b163f">
+
+
+2. For Categorical Columns we check the count of unique entries and their values
+```
+df['Ship Status'].unique()
+```
+array(['Shipped Early', 'Shipped Late', 'Shipped On Time'], dtype=object)
+
+```
+df['Category'].unique()
+```
+array(['Office Supplies', 'Technology', 'Furniture'], dtype=object)
+
+```
+df['Country'].unique()
+```
+array(['United Kingdom', 'France', 'Germany', 'Italy', 'Spain', 'Netherlands', 'Sweden', 'Belgium', 'Austria', 'Ireland', 'Portugal', 'Finland', 'Denmark', 'Norway', 'Switzerland'], dtype=object)
+
+```
+df['Discount'].unique()
+```
+array(['0%', '10%', '15%', '40%', '50%', '60%', '35%', '20%', '30%', '45%', '70%', '65%', '80%', '85%'], dtype=object)
+
+```
+df['Region'].unique()
+```
+array(['North', 'Central', 'South'], dtype=object)
+
+```
+df['Segment'].unique()
+```
+array(['Corporate', 'Consumer', 'Home Office'], dtype=object)
+
+```
+df['Ship Mode'].unique()
+```
+array(['Standard Class', 'Second Class', 'Same Day', 'First Class'], dtype=object)
+
+```
+df['Sub-Category'].unique()
+```
+array(['Storage', 'Accessories', 'Labels', 'Phones', 'Copiers',
+       'Appliances', 'Fasteners', 'Art', 'Envelopes', 'Binders',
+       'Bookcases', 'Machines', 'Paper', 'Supplies', 'Tables', 'Chairs',
+       'Furnishings'], dtype=object)
+
+Some categorical columns have too many unique values to be displayed.
+
+## Summary Statistic:
+Summarized the large datasets into insightful numbers and gist of information about the data. Business owner can understand the general situation, make decisions and monitor the changes.
+
+There are 3 types of summary statistics:
+### 1.	Measures of location:
+Mean (Average of a data set), Median (middle value of the data set), Mode (most repeated number),
+### 2.	measures of spread:
+To understand the spread and distribution of data. and to find outliers.
+#### 3.	Graphics and charts:
+Dash board.
+
+
+
 
 
