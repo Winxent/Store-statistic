@@ -294,16 +294,87 @@ df.var()
 
 #### Group by 
 Creating table with grouped information
-
-
-### 2.	measures of spread:
-To understand the spread and distribution of data. and to find outliers.
 ```
 df.groupby('Ship Status').mean()
 ```
 
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/43135f65-55b6-4d44-9952-ea8d027c61bd">
 
-#### 3.	Graphics and charts:
+Shipped early gained more avg profit ratio
+
+```
+df.groupby('Category').mean()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/79ef6c68-477d-467a-a519-91845c5e25f5">
+
+Technology has the higher average but office supplies has the highest avg in terms of profit ratio.
+
+```
+df.groupby('Country').mean()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/3fae76cb-d803-4efa-9f65-ff02f17aca9d">
+
+In terms of country, Switzerland has the highest avg profit and profit ratio
+
+```
+df.groupby('Discount').mean()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/3af7cbdb-9e1d-4624-a1d1-b65cdcb800ea">
+
+The higher the discount rate the lower the earning, in some cases, loss incurred.
+
+```
+df.groupby('Segment').mean()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/29d3f4a8-2954-4872-9a6d-af425ec3c8f0">
+
+Corporate has a slightly higher profit and sales, but home office profit ratio is higher.
+
+
+### 2.	measures of spread:
+To understand the spread and distribution of data. and to find outliers.
+
+#### Distribution in Quantiles
+Here we are calculating the Quartiles by dividing the dataset into 4 groups
+```
+df.quantile([0.25,0.5, 0.75, 1], axis = 0)
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/c8429353-e6cf-4182-952a-20b880ca24df">
+
+#### IQR of Dataset
+Making quartiles by profit
+```
+q1, q3 = df["Profit"].quantile([0.25,0.75])
+iqr = q3- q1
+iqr
+```
+47.25
+
+```
+lower_min = q1 - (1.5*iqr)
+upper_max = q3 + (1.5*iqr)
+print("Lower expected min of IQR = ", lower_min)
+print("Upper expected max of IQR = ", upper_max)
+```
+Lower expected min of IQR =  -69.875
+Upper expected max of IQR =  119.125
+
+```
+df[(df["Profit"] < -69.875) | (df["Profit"] > 119.125 )].count()
+```
+There are 1718 outliers more than 119.124 .
+
+#### Summary:
+Base on profit mean median mode and quartile, there is an average of  37.29 profit per order with a median of 14, negative skewness. In mode, out of 10000, 293 orders have zero profit, business owner need to investigate the high occurrence of zero profit. 1718 orders are outliers with profit higher than 119.125, it can be concluded that there are a few orders that performed highly. 
+
+From the few group by the information table, a few insights can be made. Shipping early gained more profit for the store. Technology products has higher profit average. Business should focus more on technology. In addition, selling to Switzerland gain more profit than other countries. Lastly, high discount causes business to lose money. Business owner should reconsider in these discount rate. 
+
+### 3.	Graphics and charts:
 Dash board.
 
 
