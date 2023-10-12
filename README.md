@@ -12,7 +12,7 @@ https://docs.google.com/spreadsheets/d/1Scs5u9jgiYKOVWj_CVlRHaSSn-RuTEpQ/edit?us
 
 ![rainbow](https://github.com/Winxent/portfolio/assets/146320825/5dc438d2-e138-4db0-97a0-e5ae8c3473e8)
 
-# Data Cleaning
+# Data Cleaning (Python)
 Check the chosen dataset if it needs any data cleaning. Go through all the fields, check for any null values or incorrect data types
 
 Import Pandas library and load the dataset into Google Collaboratory 
@@ -77,6 +77,7 @@ Datatypes error:
 6.	Profit, should be in float type
 7.	Sales, should be in int type
 8.	Ship Date, should be in date type
+
 After investigation, it seems that the data type can’t convert to float is because there is a comma
 
 <img width="58" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/9eca00ff-a36b-4aea-afed-08288fbf9565">
@@ -111,11 +112,43 @@ df['Sales'] = df['Sales'].astype(int)
 Now all the datatypes are correct
 
 ## D – Drop irrelevant columns
+Number of record has no meaning as it is always one, checked by unique and nunique function:
+```
+df["Number of Records"].nunique()
+```
+ans: 1
 
+It has no comparison value, hence it is dropped 
+```
+df.drop('Number of Records', axis=1,inplace = True)
+```
+Since there is always only 1 customer, sales per customer, profit per order and sales per profit can be drop as it is repeat in profit and sales column.
+```
+df.drop(['Sales per Customer','Profit per Customer','Profit per Order'], axis=1,inplace = True)
+```
+
+Sales forecast and unit estimated can also be drop as they show no significant analysis
+```
+df.drop(['Sales Forecast','Unit Estimated'], axis=1,inplace = True)
+```
 
 ## E – Fix inconsistent data entry
+Check inconsistent data entry using unique function
+```
+df["City"].unique()
+list(df['City'].unique())
+```
+After checking the columns one by one, there is no inconsistent data entry
+
 ## F – Trim whitespaces
+No columns have any extra whitespaces errors
+
 ## G – Correct spelling errors
+There are no spelling errors
+
 ## H – Correct numerical errors
+There are no numerical errors
+
+# Data Analysis (Python)
 
 
