@@ -1,4 +1,4 @@
-<img width="284" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/d1fd18e6-9332-40a2-91be-3bf4fa479f0c"># Store-statistic
+# Store-statistic
 Goal: Data Analysis on store sales and profits dataset using Python and data visualisation using Tableau.
 
 ![rainbow](https://github.com/Winxent/portfolio/assets/146320825/5dc438d2-e138-4db0-97a0-e5ae8c3473e8)
