@@ -1,4 +1,4 @@
-# Store-statistic
+<img width="284" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/d1fd18e6-9332-40a2-91be-3bf4fa479f0c"># Store-statistic
 Goal: Data Analysis on store sales and profits dataset using Python and data visualisation using Tableau.
 
 ![rainbow](https://github.com/Winxent/portfolio/assets/146320825/5dc438d2-e138-4db0-97a0-e5ae8c3473e8)
@@ -82,7 +82,7 @@ After investigation, it seems that the data type can’t convert to float is bec
 
 <img width="58" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/9eca00ff-a36b-4aea-afed-08288fbf9565">
 
-1. String to float datatype
+### 1. String to float datatype
 We need to remove the comma first
 ```
 df['Profit per Customer']=df['Profit per Customer'].str.replace(',','')
@@ -93,14 +93,14 @@ df[‘Profit per Customer’] = df[‘Profit per Customer’].astype(float)
 ```
 Repeat all for float type error.
 
-2. String to date datatype
+### 2. String to date datatype
 Change to date function
 ```
 df['Order Date'] = pd.to_datetime(df['Order Date'])
 ```
 Repeat for Ship Date
 
-3. String to int datatype
+### 3. String to int datatype
 Change string to int for sales column
 ```
 df['Sales']=df['Sales'].str.replace(',','')
@@ -197,14 +197,14 @@ By investigating the shape and size of our data set:
 ## Data Aggregation:
 It helps us understand the data trends and values based on the compact display of values. Helps describe the data, and generate insight from the characteristic of the data. A store business owner might want to look into the sales and decide which products have better performance so that he or she can focus more than these products. A store owner can also look into which products give negative profit. 
 
-1. Check the types of columns we have
+### 1. Check the types of columns we have
 ```
 df.dtypes
 ```
 <img width="183" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/6c00d2a6-c134-46db-a881-54de116b163f">
 
 
-2. For Categorical Columns we check the count of unique entries and their values
+### 2. For Categorical Columns we check the count of unique entries and their values
 ```
 df['Ship Status'].unique()
 ```
@@ -250,16 +250,62 @@ array(['Storage', 'Accessories', 'Labels', 'Phones', 'Copiers',
 
 Some categorical columns have too many unique values to be displayed.
 
+### For the Numerical Columns lets find the minimum and maximum values
+```
+df.describe()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/50c9b5af-176e-4dfe-b62d-283e6bc62b23">
+
+<img width="662" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/acdb329c-ab9e-4c9a-ae4f-a677f2e2768c">
+
 ## Summary Statistic:
-Summarized the large datasets into insightful numbers and gist of information about the data. Business owner can understand the general situation, make decisions and monitor the changes.
+Summarized the large datasets into insightful numbers and gist of information about the data. Business owner can understand the general situation, make decisions and monitor the changes. Summaries of data help us understand the detailed trends followed in datasets based on concise information using measures of location and spread 
 
 There are 3 types of summary statistics:
 ### 1.	Measures of location:
 Mean (Average of a data set), Median (middle value of the data set), Mode (most repeated number),
+
+<img width="660" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/2cf0ff9c-479f-4cab-a089-77b470c09c67">
+
+```
+df.mode()
+```
+
+<img width="468" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/6d14eda6-6135-4988-965a-1d29c0df8d7b">
+<img width="431" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/21640563-c5a8-44ff-a5a4-40882fa5696a">
+
+To count the number of mode:
+```
+df[df["Product Name"] == 'Eldon File Cart, Single Width'].count()
+```
+count: 30
+
+```
+df[df["Profit"] == 0].count()
+```
+Count: 293
+
+```
+df.var()
+```
+
+<img width="284" alt="image" src="https://github.com/Winxent/Store-statistic/assets/146320825/2f4741fa-79bd-4aab-81c1-02d08330da6b">
+
+#### Group by 
+Creating table with grouped information
+
+
 ### 2.	measures of spread:
 To understand the spread and distribution of data. and to find outliers.
+```
+df.groupby('Ship Status').mean()
+```
+
+
 #### 3.	Graphics and charts:
 Dash board.
+
 
 
 
